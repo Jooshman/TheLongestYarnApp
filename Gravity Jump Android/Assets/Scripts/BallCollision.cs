@@ -3,17 +3,17 @@ using System.Collections;
 
 public class BallCollision : MonoBehaviour {
 	ScoreCounter scoreCount = new ScoreCounter ();
-	public bool protect;
-	// Use this for initialization
+	public Rigidbody shield;
+	public bool protect = false;
+
+
 	void OnCollisionEnter (Collision collision){
 		if (collision.gameObject.tag == "cube") {
-			//Destroy (collision.gameObject);
 			if (protect == false) {
 				if (scoreCount.getHighScore () < scoreCount.getScore ()) {
 					scoreCount.setHighScore (scoreCount.getScore ());
 					scoreCount.setBool (true);
 				}
-
 				Application.LoadLevel (2);
 			} else {
 				Destroy (collision.gameObject);
@@ -26,8 +26,13 @@ public class BallCollision : MonoBehaviour {
 			Destroy(collision.gameObject);
 			protect = true;
 		}
+	}
 
-
-
+	void FixedUpdate(){
+		if (protect == true) {
+			shield.gameObject.SetActive (true);
+		} else {
+			shield.gameObject.SetActive (false);
+		}
 	}
 }
