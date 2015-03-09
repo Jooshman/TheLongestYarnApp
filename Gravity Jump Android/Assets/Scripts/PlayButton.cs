@@ -4,11 +4,8 @@ using System.Collections;
 public class PlayButton : MonoBehaviour {
 	public GameObject canvas;
 	public static int started = 0;
-	void start(){
-		if (started != 0) {
-			canvas.SetActive(false);
-		}
-
+	void Start(){
+		Screen.orientation = ScreenOrientation.LandscapeLeft;
 	}
 	
 
@@ -22,6 +19,7 @@ public class PlayButton : MonoBehaviour {
 	// Use this for initialization
 	public void play(int i){
 		ScoreCounter scoreCount = new ScoreCounter ();
+		Screen.orientation = ScreenOrientation.LandscapeLeft;
 		if (i == 1) {
 			//scoreCount.congratsText.text = "";
 			//scoreCount.longyarnText.text = "";

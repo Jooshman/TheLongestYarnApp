@@ -35,6 +35,7 @@ public class MovementControl : MonoBehaviour {
 	}
 	
 	void Update(){
+		Screen.orientation = ScreenOrientation.LandscapeLeft;
 		if (Input.touchCount > 0 && Input.GetTouch(0).position.x > Screen.width/2 && inAir == false) {
 			inAir = true;
 			if(gravity == -1){

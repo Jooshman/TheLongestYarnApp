@@ -19,7 +19,7 @@ public class CreateCubes : MonoBehaviour {
 		if (cubeClock > 23) {
 			
 			cubeClock = 0;
-			int cubePick = Random.Range(0,9);
+			int cubePick = Random.Range(0,8);
 			CreateInstance (cubePick);
 		} 
 		if (yarnClock > 2) {
@@ -32,7 +32,7 @@ public class CreateCubes : MonoBehaviour {
 	private void CreateInstance(int i){
 		//print (i);
 		int chance = Random.Range (0, 5);
-		int shieldChance = Random.Range (0,50);
+		int shieldChance = Random.Range (0,40);
 		if (i == 0) { //bottom single
 			Rigidbody instance = Instantiate (cubeFab, new Vector3 (10, .4f, cubeFab.position.z), cubeFab.rotation) as Rigidbody;
 			moveCube (instance);
